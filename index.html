@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product quantity counter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="./img1.jpg" class="main-product-img" id="main-product-img" />
+
+        <h2 class="card-heading">Samsung S23 ulta 5G </h2>
+
+        <div class="quantity-btn-container">
+            <button type="button" class="btn" onclick="handleQuantityChange('dec')">
+                -
+            </button>
+
+            <span class="quantity" id="quantity">1</span>
+
+            <button type="button" class="btn" onclick="handleQuantityChange('inc')">
+                +
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function handleQuantityChange(action) {
+            const quantityElement = document.getElementById('quantity')
+
+            let quantity = parseInt(quantityElement.innerText);
+
+            if (quantity == 1 && action == 'dec') {
+                alert('Quantity can not be less than 1!')
+                return
+            }
+            else if(quantity == 5 && action == 'inc') {
+                alert('Quantity can not be more then 5!')
+                return
+            }
+
+            quantityElement.innerText = action == 'inc' ? ++quantity : --quantity
+        }
+
+    </script>
+</body>
+
+</html>
